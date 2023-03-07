@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="transparentContainer">
+        <div class="TitleContainer container">
+    <header>
+        <h1>Weather App</h1>
+    </header>
+    <div class="citySearch">
+            <input type="text" placeholder="City Name" name="search" class="searchField">
+            <button type="submit" class="searchButton">🔍</button>
+        </div>
+    </div>
+    <div class="weatherContainer container">
+        <div id="today">
+            <h2 class="city">Weather in Birmingham</h2>
+            <div class="temp">20°C</div>
+            <img src="" alt="" class="icon"/>
+            <div class="description">Cloudy</div>
+            <div class="humidity">Humidity: 70%</div>
+            <div class="wind">Wind speed: 6.2km/h</div>
+            </div>
+        <!-- <div id="5day" class="row">
+            <div class="col mt-4">
+
+            </div>
+        </div> -->
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>
