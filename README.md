@@ -9,6 +9,8 @@ This project saves the searched cities so the user can see what cities they have
 
 This project also allows the user to search previously searched cities by clicking the search history buttons.
 
+Two API's were used to showcase fetching from multiple APIs in one webpage.
+
 ## Installation
 
 N/A
@@ -39,6 +41,14 @@ There are no tests currently.
 ## Limitations
 
 Currently I have used a work around in order to clear all data from the page by pushing for the page to reload and automatically delete the data.  This would need to be fixed in a future development.
+
+## Future improvements
+
+1. Remove li elements rather than reloading page to remove added search history items
+2. Use one API to make more efficient coding
+3. Change the CSS styling depending on screensize
+4. Limit the local storage to 5 items
+5. Show a consistent data layout for the current and future forecasts
 
 ## Link to page
 
