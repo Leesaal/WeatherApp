@@ -1,18 +1,43 @@
-// create variables to select
+// create variables to select elements
+
 var searchCity = document.getElementById("searchButton");
 var city = document.getElementById("cityName");
+var clear = document.getElementById("clear");
+var search1 = document.getElementById("search1");
 var searchedCities = [];
 
+
+// create var and function for dates
+
+var now = dayjs();
+
+function timeConverter(UNIX_timestamp){
+  var a = new Date(UNIX_timestamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var time = date + ' ' + month + ' ' + year;
+  return time;
+}
+
+
 // Access to open weather API
+
 var APIKey = "e95b7c930467798b718473602a6561c5";
 
+
 var weather = {
+
  
+// fetch current data and display on webpage
+
     fetchWeather: function(city) {
         fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
         + city 
         + "&appid=" 
         + APIKey
+        + "&units=metric"
     )
         .then((response) => response.json())
         .then((data) => this.displayWeather(data));
@@ -32,13 +57,18 @@ var weather = {
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
+        document.querySelector(".date").innerText = now.format("dddd, MMMM DD");
     },
+
+
+// fetch future data and display on webpage
 
     futureWeather: function(city) {
         fetch("http://api.openweathermap.org/geo/1.0/direct?q="
         + city
         + "&limit=5&appid=" 
         + APIKey
+        + "&units=metric"
     )
         .then((response) => response.json())
         .then((data) => this.fetchLatLon(data));
@@ -54,46 +84,62 @@ var weather = {
         + lon
         + "&exclude=current,hourly,minutely&appid="
         + APIKey
-    )
+        + "&units=metric"
+    ) 
         .then((response) => response.json())
         .then((data) => this.displayFutureWeather(data));
+
     },
 
     displayFutureWeather: function(data) {
-        for (var i = 0; i < 5; i++) {
+        for (var i = 1; i < 6; i++) {
 // set date
         var { dt } = data.daily[i];
-        var day = "day-" + (i+1);
+        dt = timeConverter(dt);
+        var day = "day-" + (i);
         document.querySelector("." + day).innerText = dt;
 
 // set temp
         var { day } = data.daily[i].temp;
-        var temp = "temp-" + (i+1);
-        document.querySelector("." + temp).innerText = "Temp:" + day + "°C";
+        var temp = "temp-" + (i);
+        document.querySelector("." + temp).innerText = "Temp: " + day + "°C";
 
 // set icon
         var { icon } = data.daily[i].weather[0];
-        var iconTag = "icon-" + (i+1);
+        var iconTag = "icon-" + (i);
         document.querySelector("." + iconTag).src = "https://openweathermap.org/img/wn/"
         + icon
         + ".png";
 
 // set humidity
         var { humidity } = data.daily[i];
-        var humid = "humidity-" + (i+1);
+        var humid = "humidity-" + (i);
         document.querySelector("." + humid).innerText = "Humidity: " + humidity + "%";
 
 // set wind speed
         var { wind_speed } = data.daily[i];
-        var speed = "wind-" + (i+1);
+        var speed = "wind-" + (i);
         document.querySelector("." + speed).innerText = "Wind speed: " + wind_speed + "km/h";
     }
 }
 };
 
+// create function to save to local storage and unhide button
+
+function saveLocal(city) {
+    localStorage.setItem("search" + ((localStorage.length) + 1), city);
+    console.log(localStorage);
+} 
 
 // create event listener for search button
+
 searchCity.addEventListener('click', e => {
     weather.fetchWeather(city.value);
-    weather.futureWeather(city.value)
+    weather.futureWeather(city.value);
+    saveLocal(city.value);
 })
+
+// clear localStorage
+
+clear.addEventListener('click', localStorage.clear());
+

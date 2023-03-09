@@ -11,68 +11,80 @@
 </head>
 <body>
     <div class="transparentContainer">
-        <div class="TitleContainer container">
-    <header>
-        <h1>Weather App</h1>
-    </header>
-    <div class="citySearch">
-            <input type="text" placeholder="City Name" name="search" id="cityName">
-            <button id="searchButton">🔍</button>
-        </div>
-    </div>
-
-    <div class="weatherContainer container">
-        <div id="today">
-            <h2 class="city">Weather in Birmingham</h2>
-            <div class="temp">20°C</div>
-            <img src="" alt="" class="icon"/>
-            <div class="description">Cloudy</div>
-            <div class="humidity">Humidity: 70%</div>
-            <div class="wind">Wind speed: 6.2km/h</div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="TitleContainer container">
+                    <header>
+                        <h1>Weather App</h1>
+                    </header>
+                    <div class="citySearch">
+                            <input type="text" placeholder="City Name" name="search" id="cityName">
+                            <button id="searchButton">🔍</button>
+                            <button id="clear">❌
+                            </button>
+                    </div>
+                </div>
+                <div class="searchHistory">
+                    <ul class="searchList">
+                    </ul>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                <div class="weatherContainer container">
+                    <div id="today">
+                        <h2 class="city">Weather in Birmingham</h2>
+                        <h6 class="date">Monday, March 06</h6>
+                        <div class="temp">20°C</div>
+                        <img src="" alt="" class="icon"/>
+                        <div class="description">Cloudy</div>
+                        <div class="humidity">Humidity: 70%</div>
+                        <div class="wind">Wind speed: 6.2km/h</div>
+                        </div>
+                </div>
+                
+                    <div class= "row fiveDayContainer">
+                        <div class="col-md-2">
+                            <h6 class="day-1">Tomorrow</h6>
+                            <img src="" alt="" class="icon-1" />
+                            <div class="temp-1">20°C</div>
+                            <div class="humidity-1">Humidity: 70%</div>
+                            <div class="wind-1">Wind speed: 6.2km/h</div>
+                        </div>
+                        <div class="col-md-2">
+                            <h6 class="day-2">07 Mar 2023</h6>
+                            <img src="" alt="" class="icon-2" />
+                            <div class="temp-2">20°C</div>
+                            <div class="humidity-2">Humidity: 70%</div>
+                            <div class="wind-2">Wind speed: 6.2km/h</div>
+                        </div>
+                        <div class="col-md-2">
+                            <h6 class="day-3">08 Mar 2023</h6>
+                            <img src="" alt="" class="icon-3" />
+                            <div class="temp-3">20°C</div>
+                            <div class="humidity-3">Humidity: 70%</div>
+                            <div class="wind-3">Wind speed: 6.2km/h</div>
+                        </div>
+                        <div class="col-md-2">
+                            <h6 class="day-4">09 Mar 2023</h6>
+                            <img src="" alt="" class="icon-4" />
+                            <div class="temp-4">20°C</div>
+                            <div class="humidity-4">Humidity: 70%</div>
+                            <div class="wind-4">Wind speed: 6.2km/h</div>
+                        </div>
+                        <div class="col-md-2">
+                            <h6 class="day-5">10 Mar 2023</h6>
+                            <img src="" alt="" class="icon-5" />
+                            <div class="temp-5">20°C</div>
+                            <div class="humidity-5">Humidity: 70%</div>
+                            <div class="wind-5">Wind speed: 6.2km/h</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-
-    <div class= "row fiveDayContainer">
-        <div class="col-md-2 intro">
-            <h6>5 day forecast</h6>
-        </div>
-        <div class="col-md-2">
-            <h6 class="day-1">Tomorrow</h6>
-            <img src="" alt="" class="icon-1" />
-            <div class="temp-1">20°C</div>
-            <div class="humidity-1">Humidity: 70%</div>
-            <div class="wind-1">Wind speed: 6.2km/h</div>
-        </div>
-        <div class="col-md-2">
-            <h6 class="day-2">2</h6>
-            <img src="" alt="" class="icon-2" />
-            <div class="temp-2">20°C</div>
-            <div class="humidity-2">Humidity: 70%</div>
-            <div class="wind-2">Wind speed: 6.2km/h</div>
-        </div>
-        <div class="col-md-2">
-            <h6 class="day-3">3</h6>
-            <img src="" alt="" class="icon-3" />
-            <div class="temp-3">20°C</div>
-            <div class="humidity-3">Humidity: 70%</div>
-            <div class="wind-3">Wind speed: 6.2km/h</div>
-        </div>
-        <div class="col-md-2">
-            <h6 class="day-4">4</h6>
-            <img src="" alt="" class="icon-4" />
-            <div class="temp-4">20°C</div>
-            <div class="humidity-4">Humidity: 70%</div>
-            <div class="wind-4">Wind speed: 6.2km/h</div>
-        </div>
-        <div class="col-md-2">
-            <h6 class="day-5">5</h6>
-            <img src="" alt="" class="icon-5" />
-            <div class="temp-5">20°C</div>
-            <div class="humidity-5">Humidity: 70%</div>
-            <div class="wind-5">Wind speed: 6.2km/h</div>
         </div>
     </div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="assets/script.js"></script>
