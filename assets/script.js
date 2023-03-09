@@ -1,36 +1,10 @@
 // create variables to select
-var searchButton = $(".searchButton");
+var searchCity = document.getElementById("searchButton");
+var city = document.getElementById("cityName");
 var searchedCities = [];
-var city = $("#city");
 
 // Access to open weather API
 var APIKey = "e95b7c930467798b718473602a6561c5";
-
-
-// create event listeners
-searchButton.click(function () {
-
-    var searchCity = $(".searchCity").val();
-    searchedCities.push(searchCity);
-// set Items by identifying a key to set the search city to
-    
-
-})
-
-
-// create function to read the UNIX timestamps
-function timeConverter(UNIX_timestamp){
-  var a = new Date(UNIX_timestamp * 1000);
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-  var sec = a.getSeconds();
-  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-  console.log(time);
-}
 
 var weather = {
  
@@ -50,7 +24,6 @@ var weather = {
         var { icon, description } = data.weather[0];
         var { temp, humidity } = data.main;
         var { speed } = data.wind;
-        console.log(name, icon, description, temp, humidity, speed);
         document.querySelector(".city").innerText = "Weather in " + name;
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/"
         + icon
@@ -59,7 +32,6 @@ var weather = {
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
-        futureWeather(city);
     },
 
     futureWeather: function(city) {
@@ -118,3 +90,10 @@ var weather = {
     }
 }
 };
+
+
+// create event listener for search button
+searchCity.addEventListener('click', e => {
+    weather.fetchWeather(city.value);
+    weather.futureWeather(city.value)
+})
