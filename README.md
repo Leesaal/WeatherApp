@@ -7,8 +7,6 @@ This project was created using HTML, CSS and Javascript and uses APIs to showcas
 
 This project saves the searched cities so the user can see what cities they have searched in the past as well as clear the local storage search history.
 
-This project also allows the user to search previously searched cities by clicking the search history buttons.
-
 Two API's were used to showcase fetching from multiple APIs in one webpage.
 
 ## Installation
@@ -41,6 +39,7 @@ There are no tests currently.
 ## Limitations
 
 Currently I have used a work around in order to clear all data from the page by pushing for the page to reload and automatically delete the data.  This would need to be fixed in a future development.
+Previous search history cannot yet be clicked to rerun the API functions.
 
 ## Future improvements
 
@@ -49,6 +48,7 @@ Currently I have used a work around in order to clear all data from the page by 
 3. Change the CSS styling depending on screensize
 4. Limit the local storage to 5 items
 5. Show a consistent data layout for the current and future forecasts
+6. Add event listener for the search history buttons to trigger the functions to run based on the city clicked
 
 ## Link to page
 
