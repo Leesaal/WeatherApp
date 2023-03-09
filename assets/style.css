@@ -100,3 +100,11 @@ header {
 .search {
     text-transform: capitalize;
 }
+
+li {
+    list-style: none;
+}
+
+button {
+    text-transform: capitalize;
+}
