@@ -54,12 +54,28 @@ var weather = {
         + APIKey
     )
         .then((response) => response.json())
-        .then((data) => this.fetchFutureWeather(data));
+        .then((data) => this.fetchLatLon(data));
     },
 
-    fetchFutureWeather: function(data) {
-        var { lon } = data[0];
+    fetchLatLon: function(data) {
         var { lat } = data[0];
-        console.log(lon + ", " + lat);
+        var { lon } = data[0];
+        console.log(lat + ", " + lon);
+
+        fetch("http://api.openweathermap.org/data/2.5/forecast?lat="
+        + lat
+        + "&lon="
+        + lon
+        + "&appid="
+        + APIKey
+    )
+        .then((response) => response.json())
+        .then((data) => this.displayFutureWeather(data));
+    },
+
+    displayFutureWeather: function(data) {
+        var { dt_txt } = data.list[0];
+        console.log(dt_txt)
     }
+
 };
