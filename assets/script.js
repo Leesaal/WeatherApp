@@ -18,6 +18,20 @@ searchButton.click(function () {
 })
 
 
+// create function to read the UNIX timestamps
+function timeConverter(UNIX_timestamp){
+  var a = new Date(UNIX_timestamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+  console.log(time);
+}
+
 var weather = {
  
     fetchWeather: function(city) {
@@ -45,6 +59,7 @@ var weather = {
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
+        futureWeather(city);
     },
 
     futureWeather: function(city) {
@@ -60,13 +75,12 @@ var weather = {
     fetchLatLon: function(data) {
         var { lat } = data[0];
         var { lon } = data[0];
-        console.log(lat + ", " + lon);
 
-        fetch("http://api.openweathermap.org/data/2.5/forecast?lat="
+        fetch("https://api.openweathermap.org/data/3.0/onecall?lat="
         + lat
         + "&lon="
         + lon
-        + "&appid="
+        + "&exclude=current,hourly,minutely&appid="
         + APIKey
     )
         .then((response) => response.json())
@@ -74,8 +88,33 @@ var weather = {
     },
 
     displayFutureWeather: function(data) {
-        var { dt_txt } = data.list[0];
-        console.log(dt_txt)
-    }
+        for (var i = 0; i < 5; i++) {
+// set date
+        var { dt } = data.daily[i];
+        var day = "day-" + (i+1);
+        document.querySelector("." + day).innerText = dt;
 
+// set temp
+        var { day } = data.daily[i].temp;
+        var temp = "temp-" + (i+1);
+        document.querySelector("." + temp).innerText = "Temp:" + day + "°C";
+
+// set icon
+        var { icon } = data.daily[i].weather[0];
+        var iconTag = "icon-" + (i+1);
+        document.querySelector("." + iconTag).src = "https://openweathermap.org/img/wn/"
+        + icon
+        + ".png";
+
+// set humidity
+        var { humidity } = data.daily[i];
+        var humid = "humidity-" + (i+1);
+        document.querySelector("." + humid).innerText = "Humidity: " + humidity + "%";
+
+// set wind speed
+        var { wind_speed } = data.daily[i];
+        var speed = "wind-" + (i+1);
+        document.querySelector("." + speed).innerText = "Wind speed: " + wind_speed + "km/h";
+    }
+}
 };
