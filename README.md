@@ -47,8 +47,7 @@ Previous search history cannot yet be clicked to rerun the API functions.
 2. Use one API to make more efficient coding
 3. Change the CSS styling depending on screensize
 4. Limit the local storage to 5 items
-5. Show a consistent data layout for the current and future forecasts
-6. Add event listener for the search history buttons to trigger the functions to run based on the city clicked
+5. Add event listener for the search history buttons to trigger the functions to run based on the city clicked
 
 ## Link to page
 
