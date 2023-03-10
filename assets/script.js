@@ -57,7 +57,7 @@ var weather = {
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
-        document.querySelector(".date").innerText = now.format("dddd, MMMM DD");
+        document.querySelector(".date").innerText = now.format("DD MMM YYYY");
     },
 
 
