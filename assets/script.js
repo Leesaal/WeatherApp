@@ -191,9 +191,10 @@ window.onload = function() {
             weather.fetchWeather(e.target.value);
             weather.futureWeather(e.target.value);
     });
+    searchItem.innerHTML = localStorage["searchHistory" + (i+1)];
+    searchNum.append(searchItem);
     }
-        searchItem.innerHTML = localStorage["searchHistory" + (i+1)];
-        searchNum.append(searchItem);
+        
     }
     
 }
