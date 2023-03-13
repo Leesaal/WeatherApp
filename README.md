@@ -9,7 +9,7 @@ This project saves the searched cities so the user can see what cities they have
 
 Two API's were used to showcase fetching from multiple APIs in one webpage.
 
-PLEASE NOTE:  The app appears without the "undefined" button when loading through safari and from a local folder but Chrome is showing a button on load.
+PLEASE NOTE:  The app appears without the "undefined" button when loading through safari and from a local folder but Chrome is showing a button on load only on the github pages site.
 
 ## Installation
 
