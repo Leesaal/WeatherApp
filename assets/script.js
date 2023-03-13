@@ -149,7 +149,7 @@ function saveLocal(city) {
 
 function clearLocal() {
     localStorage.clear();
-
+    ul.innerHTML = "";
 }
 
 // create event listener for search button
