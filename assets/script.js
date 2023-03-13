@@ -68,7 +68,7 @@ var weather = {
 
     futureWeather: function(city) {
         fiveDayContainerEl.classList.remove("hide");
-        fetch("http://api.openweathermap.org/geo/1.0/direct?q="
+        fetch("https://api.openweathermap.org/geo/1.0/direct?q="
         + city
         + "&limit=5&appid=" 
         + APIKey
