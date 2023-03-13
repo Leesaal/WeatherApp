@@ -180,13 +180,14 @@ clear.addEventListener('click', e => {
 
 window.onload = function() {
     var searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
-  if (localStorage.length > 0) {
-    for (var i = 0; i < localStorage.length; i++) {
+  if (searchHistory != null) {
+    for (var i = 0; i < searchHistory.length; i++) {
         var searchNum = document.createElement("li");
         ul.append(searchNum);
         var searchItem = document.createElement("button");
         searchItem.classList.add("historicalButton");
-        searchItem.value = searchHistory[i];
+        console.log(searchHistory);
+        searchItem.innerText = searchHistory[i];
         searchItem.addEventListener("click", function(e) {
             weather.fetchWeather(e.target.value);
             weather.futureWeather(e.target.value);
