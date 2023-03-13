@@ -74,17 +74,19 @@ header {
     border-radius: 50px;
 }
 
-.temp,.description, .humidity {
+.temp, .description, .humidity {
     margin: 20px;
 }
 
 .fiveDayContainer {
+    margin-top: 20px;
     font-size: 12px;
-    margin: 20% auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .col-md-2 {
-    margin: 30px 10px;
+    margin: 30px;
     border: 1px solid black;
     border-radius: 6px;
 }
@@ -97,7 +99,7 @@ header {
     display: none;
 }
 
-.search {
+.searchHistory {
     text-transform: capitalize;
 }
 
@@ -107,4 +109,8 @@ li {
 
 button {
     text-transform: capitalize;
+}
+
+.hide {
+    display: none;
 }

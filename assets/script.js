@@ -5,7 +5,9 @@ var city = document.getElementById("cityName");
 var clear = document.getElementById("clear");
 var search1 = document.getElementById("search1");
 var ul = document.querySelector(".searchList"); 
-
+var todayEl = document.getElementById("today");
+var fiveDayContainerEl = document.querySelector(".fiveDayContainer");
+var searchHistory = [];
 
 // create var and function for dates
 
@@ -127,14 +129,12 @@ var weather = {
 // create function to save to local storage and clear local storage
 
 function saveLocal(city) {
-    localStorage.setItem("search" + (localStorage.length+1), city);
-    console.log(localStorage);
-
-    
+    searchHistory.push(city.toLowerCase());
+    localStorage.setItem("searchHistory" + (localStorage.length+1), city);
     var searchNum = document.createElement("li");
     ul.append(searchNum);
     var searchItem = document.createElement("button");
-    searchItem.innerHTML = city;
+    searchItem.innerHTML = city.toLowerCase();
     searchNum.append(searchItem);
     
 }
@@ -142,22 +142,26 @@ function saveLocal(city) {
 function clearLocal() {
     localStorage.clear();
     ul.innerHTML = "";
-    
 }
+
 
 // create event listener for search button
 
 searchCity.addEventListener('click', e => {
+    e.preventDefault();
     if (city.value != "") {
+    todayEl.classList.remove("hide");
+    fiveDayContainerEl.classList.remove("hide");
     weather.fetchWeather(city.value);
     weather.futureWeather(city.value);
     saveLocal(city.value);
     } else {
-        return
+        alert("Please enter the name of a city");
     }
 })
 
-// clear localStorage
+
+// clear localStorage using event listener
 
 clear.addEventListener('click', e => {
     localStorage.clear();

@@ -12,16 +12,18 @@
 <body>
     <div class="transparentContainer">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-2">
                 <div class="TitleContainer container">
                     <header>
                         <h1>Weather App</h1>
                     </header>
                     <div class="citySearch">
+                        <form>
                             <input type="text" placeholder="City Name" name="search" id="cityName">
                             <button id="searchButton">🔍</button>
                             <button id="clear">❌
                             </button>
+                        </form>
                     </div>
                 </div>
                 <div class="searchHistory">
@@ -29,9 +31,9 @@
                     </ul>
                 </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-10">
                 <div class="weatherContainer container">
-                    <div id="today">
+                    <div id="today" class="hide">
                         <h2 class="city">Weather in Birmingham</h2>
                         <h6 class="date">06 Mar 2023</h6>
                         <div class="temp">20°C</div>
@@ -42,7 +44,7 @@
                         </div>
                 </div>
                 
-                    <div class= "row fiveDayContainer">
+                    <div class= "row fiveDayContainer hide">
                         <div class="col-md-2">
                             <h6 class="day-1">Tomorrow</h6>
                             <img src="" alt="" class="icon-1" />
