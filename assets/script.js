@@ -132,8 +132,7 @@ var weather = {
 
 function saveLocal(city) {
     searchHistory.push(city.toLowerCase());
-    // save to local storage
-    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    localStorage.setItem("searchHistory" + (localStorage.length+1), city);
     var searchNum = document.createElement("li");
     ul.append(searchNum);
     var searchItem = document.createElement("button");
@@ -180,22 +179,21 @@ clear.addEventListener('click', e => {
 // get localStorage on load
 
 window.onload = function() {
-    var searchHistory = localStorage.getItem("searchHistory");
-  if (searchHistory.length > 0) {
-    for (var i = 0; i < searchHistory.length; i++) {
+    localStorage.getItem("searchHistory");
+  if (localStorage.length > 0) {
+    for (var i = 0; i < localStorage.length; i++) {
         var searchNum = document.createElement("li");
         ul.append(searchNum);
         var searchItem = document.createElement("button");
         searchItem.classList.add("historicalButton");
-        searchItem.value = searchHistory[i];
+        searchItem.value = localStorage["searchHistory" + (i+1)];
         searchItem.addEventListener("click", function(e) {
             weather.fetchWeather(e.target.value);
             weather.futureWeather(e.target.value);
-            
     });
     }
-       searchItem.innerHTML = searchHistory[i];
-        searchNum.append(searchItem); 
+        searchItem.innerHTML = localStorage["searchHistory" + (i+1)];
+        searchNum.append(searchItem);
     }
     
 }
