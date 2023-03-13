@@ -35,6 +35,8 @@ var weather = {
 // fetch current data and display on webpage
 
     fetchWeather: function(city) {
+        todayEl.classList.remove("hide");
+        console.log(city);
         fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
         + city 
         + "&appid=" 
@@ -66,6 +68,7 @@ var weather = {
 // fetch future data and display on webpage
 
     futureWeather: function(city) {
+        fiveDayContainerEl.classList.remove("hide");
         fetch("http://api.openweathermap.org/geo/1.0/direct?q="
         + city
         + "&limit=5&appid=" 
@@ -134,6 +137,11 @@ function saveLocal(city) {
     var searchNum = document.createElement("li");
     ul.append(searchNum);
     var searchItem = document.createElement("button");
+    searchItem.addEventListener("click", function() {
+        weather.fetchWeather(city);
+        weather.futureWeather(city);
+
+    });
     searchItem.innerHTML = city.toLowerCase();
     searchNum.append(searchItem);
     
@@ -144,14 +152,13 @@ function clearLocal() {
     ul.innerHTML = "";
 }
 
-
 // create event listener for search button
 
 searchCity.addEventListener('click', e => {
     e.preventDefault();
     if (city.value != "") {
-    todayEl.classList.remove("hide");
-    fiveDayContainerEl.classList.remove("hide");
+    
+    
     weather.fetchWeather(city.value);
     weather.futureWeather(city.value);
     saveLocal(city.value);
@@ -172,12 +179,22 @@ clear.addEventListener('click', e => {
 // get localStorage on load
 
 window.onload = function() {
-    localStorage.getItem("search");
+    localStorage.getItem("searchHistory");
     for (var i = 0; i < localStorage.length; i++) {
+        console.log("hello world");
+        
         var searchNum = document.createElement("li");
         ul.append(searchNum);
         var searchItem = document.createElement("button");
-        searchItem.innerHTML = localStorage["search" + (i+1)];
+        searchItem.value = localStorage["searchHistory" + (i+1)];
+        searchItem.addEventListener("click", function(e) {
+            console.log(e.target.value);
+            weather.fetchWeather(e.target.value);
+            weather.futureWeather(e.target.value);
+    });
+        searchItem.innerHTML = localStorage["searchHistory" + (i+1)];
         searchNum.append(searchItem);
+        
     }
 }
+
