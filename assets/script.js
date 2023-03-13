@@ -170,6 +170,8 @@ searchCity.addEventListener('click', e => {
 
 clear.addEventListener('click', e => {
     localStorage.clear();
+    ul.innerHTML = "";
+    searchHistory = [];
     window.location.reload();
 });
 
