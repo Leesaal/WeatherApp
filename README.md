@@ -9,6 +9,8 @@ This project saves the searched cities so the user can see what cities they have
 
 Two API's were used to showcase fetching from multiple APIs in one webpage.
 
+PLEASE NOTE:  The app appears without the "undefined" button when loading through safari and from a local folder but Chrome is showing a button on load.
+
 ## Installation
 
 N/A
@@ -47,6 +49,7 @@ Currently I have used a work around in order to clear all data from the page by 
 2. Use one API to make more efficient coding
 3. Change the CSS styling depending on screensize
 4. Limit the local storage to 5 items
+5. Understand why chrome is showing an undefined button and fic
 
 ## Link to page
 
