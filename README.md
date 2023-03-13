@@ -5,7 +5,7 @@
 
 This project was created using HTML, CSS and Javascript and uses APIs to showcase the weather for the current day as well as the future 5 day weather forecast.  
 
-This project saves the searched cities so the user can see what cities they have searched in the past as well as clear the local storage search history.
+This project saves the searched cities so the user can see what cities they have searched in the past as well as clear the local storage search history.  Searching creates buttons to click underneath the search bar to click and return to a previous search.
 
 Two API's were used to showcase fetching from multiple APIs in one webpage.
 
@@ -15,7 +15,7 @@ N/A
 
 ## Usage
 
-This code can be used to show the current and 5 day future forecast for a searched city.
+This code can be used to show the current and 5 day future forecast for a searched city.  As well as store previous searches and access them later.
 
 ## Credits
 
@@ -31,6 +31,7 @@ This code features:
 1. Save searched cities into local storage
 2. Use of APIs to gather weather data from OpenWeatherMap
 3. Display weather data based on input city
+4. Search by clicking on previous searches
 
 ## Tests
 
@@ -39,7 +40,6 @@ There are no tests currently.
 ## Limitations
 
 Currently I have used a work around in order to clear all data from the page by pushing for the page to reload and automatically delete the data.  This would need to be fixed in a future development.
-Previous search history cannot yet be clicked to rerun the API functions.
 
 ## Future improvements
 
@@ -47,7 +47,6 @@ Previous search history cannot yet be clicked to rerun the API functions.
 2. Use one API to make more efficient coding
 3. Change the CSS styling depending on screensize
 4. Limit the local storage to 5 items
-5. Add event listener for the search history buttons to trigger the functions to run based on the city clicked
 
 ## Link to page
 
