@@ -3,15 +3,11 @@
 
 ## Description
 
-PLEASE CLONE AS THE GITHUB PAGES LINK IS NOT UPDATING CORRECTLY.
-
 This project was created using HTML, CSS and Javascript and uses APIs to showcase the weather for the current day as well as the future 5 day weather forecast.  
 
 This project saves the searched cities so the user can see what cities they have searched in the past as well as clear the local storage search history.  Searching creates buttons to click underneath the search bar to click and return to a previous search.
 
 Two API's were used to showcase fetching from multiple APIs in one webpage.
-
-PLEASE NOTE:  The app appears without the "undefined" button when loading through safari and from a local folder but Chrome is showing a button on load only on the github pages site.
 
 ## Installation
 
