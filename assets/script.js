@@ -36,7 +36,6 @@ var weather = {
 
     fetchWeather: function(city) {
         todayEl.classList.remove("hide");
-        console.log(city);
         fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
         + city 
         + "&appid=" 
@@ -181,14 +180,11 @@ clear.addEventListener('click', e => {
 window.onload = function() {
     localStorage.getItem("searchHistory");
     for (var i = 0; i < localStorage.length; i++) {
-        console.log("hello world");
-        
         var searchNum = document.createElement("li");
         ul.append(searchNum);
         var searchItem = document.createElement("button");
         searchItem.value = localStorage["searchHistory" + (i+1)];
         searchItem.addEventListener("click", function(e) {
-            console.log(e.target.value);
             weather.fetchWeather(e.target.value);
             weather.futureWeather(e.target.value);
     });
