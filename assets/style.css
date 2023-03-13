@@ -20,44 +20,48 @@ body {
     opacity: 0.5;
     border-radius: 30px;
     color: black;
-    display: flex;
-    flex-wrap: wrap;
     border: none;
     margin: 50px;
 
 }
 
 .container {
-    margin-top: 20%;
+    margin-top: 5%;
 }   
 
 header {
     font-size: 20px;
 }
 
+.TitleContainer {
+    display: block;
+    align-items: center;
+    margin-top: 10%;
+}
+
 .citySearch {
     border-radius: 4px;
-    display: flex;
-    margin: 30px;
     align-items: center;
-    justify-content: center;
+    margin-top: 30px;
+    display: block;
 }
 
-.searchField {
+#cityName {
     border-radius: 10px;
     border: 1px solid black;
-    font-size: 20px;
+    font-size: 16px;
     width: 60%;
+    padding: 5px;
 }
 
-.searchButton {
+.button {
     margin: 5px;
     font-size: 20px;
     border-radius: 10px;
     border: 1px solid black;
 }
 
-.searchButton:hover {
+.button:hover {
     cursor: pointer;
     background: white;
     box-shadow: 1.5px 3px #888888;
@@ -79,16 +83,17 @@ header {
 }
 
 .fiveDayContainer {
-    margin-top: 20px;
+    margin: 20px;
     font-size: 12px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .col-md-2 {
-    margin: 30px;
+    margin: 5px auto;
     border: 1px solid black;
     border-radius: 6px;
+    position: relative;
 }
 
 .intro {
@@ -99,16 +104,25 @@ header {
     display: none;
 }
 
-.searchHistory {
-    text-transform: capitalize;
-}
-
 li {
     list-style: none;
 }
 
-button {
+.historicalButton {
     text-transform: capitalize;
+    margin: 30px 0 0 0;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    background: white;
+}
+
+.historicalButton:hover {
+    cursor: pointer;
+    background: white;
+    box-shadow: 1.5px 3px #888888;
+    transition: 0.2s ease-in-out;
 }
 
 .hide {

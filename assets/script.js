@@ -136,6 +136,7 @@ function saveLocal(city) {
     var searchNum = document.createElement("li");
     ul.append(searchNum);
     var searchItem = document.createElement("button");
+    searchItem.classList.add("historicalButton");
     searchItem.addEventListener("click", function() {
         weather.fetchWeather(city);
         weather.futureWeather(city);
@@ -183,6 +184,7 @@ window.onload = function() {
         var searchNum = document.createElement("li");
         ul.append(searchNum);
         var searchItem = document.createElement("button");
+        searchItem.classList.add("historicalButton");
         searchItem.value = localStorage["searchHistory" + (i+1)];
         searchItem.addEventListener("click", function(e) {
             weather.fetchWeather(e.target.value);
