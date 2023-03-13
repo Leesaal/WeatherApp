@@ -57,5 +57,6 @@ https://leesaal.github.io/WeatherApp/
 
 ## Image of webpage
 
-<img width="1440" alt="WeatherApp" src="https://user-images.githubusercontent.com/118930290/224107786-cdfe3662-49e1-4ecc-84ae-318da321f9f5.png">
+<img width="1440" alt="WeatherAppPage" src="https://user-images.githubusercontent.com/118930290/224759821-49a315d0-3fb9-4e03-917c-3af029506db1.png">
+
 
