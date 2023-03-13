@@ -149,7 +149,7 @@ function saveLocal(city) {
 
 function clearLocal() {
     localStorage.clear();
-    ul.innerHTML = "";
+    
 }
 
 // create event listener for search button
@@ -157,8 +157,6 @@ function clearLocal() {
 searchCity.addEventListener('click', e => {
     e.preventDefault();
     if (city.value != "") {
-    
-    
     weather.fetchWeather(city.value);
     weather.futureWeather(city.value);
     saveLocal(city.value);
@@ -192,7 +190,7 @@ window.onload = function() {
     });
         searchItem.innerHTML = localStorage["searchHistory" + (i+1)];
         searchNum.append(searchItem);
-        
     }
+    
 }
 
